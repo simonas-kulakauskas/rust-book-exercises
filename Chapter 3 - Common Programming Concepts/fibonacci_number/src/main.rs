@@ -26,5 +26,5 @@ fn main() {
         i = i + 1;
     }
 
-    println!("\nThe {chosen_number}th value of the Fibonacci sequence is: {second_number}");
+    println!("\nThe {chosen_number}th value of the Fibonacci sequence is: {second_number}!\n");
 }
