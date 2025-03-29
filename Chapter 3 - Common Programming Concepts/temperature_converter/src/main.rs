@@ -5,18 +5,37 @@ fn main() {
         let choose_unit: char = ask_for_unit();
         let choose_temp: f32 = ask_for_temperature(&choose_unit);
 
-        if choose_unit == 'f' {
-            println!(
-                "\n{:.1} degrees Celsius is equal to {:.1} Farenheit!\n",
-                choose_temp,
-                convert_celsius_to_farenheit(choose_temp)
-            );
-        } else if choose_unit == 'c' {
-            println!(
-                "\n{:.1} degrees Farenheit is equal to {:.1} Celsius!\n",
-                choose_temp,
-                convert_fahrenheit_to_celsius(choose_temp)
-            );
+        // if choose_unit == 'f' {
+        //     println!(
+        //         "\n{:.1} degrees Celsius is equal to {:.1} Farenheit!\n",
+        //         choose_temp,
+        //         convert_celsius_to_farenheit(choose_temp)
+        //     );
+        // } else if choose_unit == 'c' {
+        //     println!(
+        //         "\n{:.1} degrees Farenheit is equal to {:.1} Celsius!\n",
+        //         choose_temp,
+        //         convert_fahrenheit_to_celsius(choose_temp)
+        //     );
+        // }
+        match choose_unit {
+            'f' => {
+                println!(
+                    "\n{:.1} degrees Celsius is equal to {:.1} Farenheit!\n",
+                    choose_temp,
+                    convert_celsius_to_farenheit(choose_temp)
+                );
+            }
+            'c' => {
+                println!(
+                    "\n{:.1} degrees Farenheit is equal to {:.1} Celsius!\n",
+                    choose_temp,
+                    convert_fahrenheit_to_celsius(choose_temp)
+                );
+            }
+            _ => {
+                println!("Value not valid");
+            }
         }
     }
 }
