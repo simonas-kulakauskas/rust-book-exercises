@@ -2,19 +2,7 @@ use std::io;
 
 fn main() {
     loop {
-        let mut choose_unit = String::new();
-
-        println!("What unit would you like to convert to? ('f' for Farenheit, 'c' for Celsius");
-        io::stdin()
-            .read_line(&mut choose_unit)
-            .expect("Unexpected unit input!");
-
-        let choose_unit: char = choose_unit
-            .trim()
-            .to_lowercase()
-            .parse()
-            .expect("Unable to convert to 'char' type.");
-
+        let choose_unit: char = ask_for_unit();
         let choose_temp: f32 = ask_for_temperature(&choose_unit);
 
         if choose_unit == 'f' {
@@ -31,6 +19,21 @@ fn main() {
             );
         }
     }
+}
+
+fn ask_for_unit() -> char {
+    let mut choose_unit = String::new();
+
+    println!("What unit would you like to convert to? ('f' for Farenheit, 'c' for Celsius");
+    io::stdin()
+        .read_line(&mut choose_unit)
+        .expect("Unexpected unit input!");
+
+    choose_unit
+        .trim()
+        .to_lowercase()
+        .parse()
+        .expect("Unable to convert to 'char' type.")
 }
 
 fn ask_for_temperature(unit: &char) -> f32 {
